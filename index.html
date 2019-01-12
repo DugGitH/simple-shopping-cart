@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <title>Simple Shopping Cart</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/application.js"></script>
@@ -14,7 +15,23 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
   </head>
+    
   <body>
-
+      <div class="container align-middle">
+      <h1 class="text-left text-light font-weight-bold">Shopping Cart</h1>
+      <div class="row">
+        <div class="col-12 col-md col-lg">
+          <table class="table  table-borderless table-dark ">
+            
+            <tbody>
+              <tr>
+                <td class="product align-middle" >Salmon</td>                
+                <td class="align-middle text-center">$<span class="cost">60.00</span></td>
+                <td class="align-middle text-center quantity"><label>QTY</label>
+                <input class="" type="number"/></td>                
+                <td class="align-middle text-center"><button class="btn btn-secondary btn-sm remove">Remove</button></td>
+                <td class="subTotal align-middle text-center">0</td> 
+              </tr>
+         
   </body>
 </html>
