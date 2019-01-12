@@ -167,5 +167,46 @@
             
             $('#totalValue').text(total1);
         }
+        
+                //added
+        $(document).on('submit', '#addProduct', function (event) {
+          event.preventDefault();
+          var product = $(this).children('[name=product]').val();
+          var cost = $(this).children('[name=cost]').val();        
+                    
+          $('tbody').prepend('<tr>' +
+              '<td class="product align-middle">' + product + '</td>' +
+              '<td class="align-middle text-center">$<span class="cost">' + cost +'.00'+ '</span></td>' +
+              '<td class="align-middle text-center quantity"><label>QTY</label>' +
+              '<input class="" type="number"/></td>' +
+              '<td class="align-middle text-center"><button class="btn btn-secondary btn-sm remove">Remove</button></td>' +
+              '<td class="subTotal align-middle text-center" >0</td>');
+ 
 
+          updateTotalCost();
+          $(this).children('[name=product]').val('');
+          $(this).children('[name=cost]').val('');
+        });
+
+        $(document).ready(function () {
+          updateTotalCost();
+
+          $(document).on('click', '.btn.remove', function (event) {
+            $(this).closest('tr').remove();
+
+             updateTotalCost();
+          });
+
+          var timeout;
+          $(document).on('input', 'tr input', function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(function () {
+              updateTotalCost();
+            }, 500);
+          });
+        });       
+
+      </script>
+
+  
 </html>
