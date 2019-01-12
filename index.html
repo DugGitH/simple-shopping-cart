@@ -122,4 +122,50 @@
       </div>
     </div>
   </body>
+    
+     <script>
+      
+         var updateSubtotal = function (ele) {
+            var unitCost = parseFloat($(ele).find('.cost').text());
+            var unitQuantity = parseFloat($(ele).find('.quantity input').val());
+
+            // subtotal is unitCost times unitQuantity
+            var subtotal1 = 0;
+        
+            subtotal1 = unitCost * unitQuantity;
+            
+            if(isNaN(subtotal1)) {
+                subtotal1 = 0;
+            }
+               
+            $(ele).children('.subTotal').html("$"+subtotal1);
+
+            return subtotal1;
+        }
+
+        var sum = function(acc, x) { return acc + x; };
+
+        var updateTotalCost = function () {
+            var totalCost = [];                
+            
+            $('tbody tr').each(function (i, ele) {
+              var subTotal1 = updateSubtotal(ele);
+              totalCost.push(subTotal1);
+              if(isNaN(totalCost[i])) {
+                totalCost[i] = 0;
+               }  
+            });
+            
+            for(var i = 0; i<totalCost.length; i++){
+                if(isNaN(totalCost[i])) {
+                    totalCost[i] = 0;
+               }  
+            }
+
+            var total1 = 0;
+            total1 = totalCost.reduce(sum);
+            
+            $('#totalValue').text(total1);
+        }
+
 </html>
