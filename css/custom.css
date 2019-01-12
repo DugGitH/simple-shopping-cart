@@ -1,0 +1,8 @@
+.table-borderless{
+    border: 0;
+}
+
+body{
+  background: url("../images/grocery.jpg");
+  background-size: cover;
+}
